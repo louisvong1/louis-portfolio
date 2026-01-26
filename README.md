@@ -1,174 +1,61 @@
-# 🚀 Louis Vong - Portfolio Website
+# Hi there! 👋 I'm Louis Vong
 
-A modern, minimalist portfolio website showcasing my professional experience as a Solution Architect and Cloud Engineer. Built with pure HTML, CSS, and JavaScript for optimal performance and clean design.
+Welcome to my personal portfolio website! I'm a **Solution Architect** and **Cloud Engineer** based in Taipei, Taiwan. I love working with cloud technologies, especially Google Cloud Platform (GCP), and I'm passionate about building scalable solutions and integrating AI into modern platforms.
 
-![Portfolio Preview](profile-photo.png)
+## 🙋‍♂️ About Me
 
-## 🌟 Features
+I'm a recent university graduate with around 4 years of programming experience, primarily using Python. I first started working with cloud servers on GCP back in 2021, and it sparked a strong interest in cloud technologies that continues to grow. I've also completed Stanford's Code in Place program, which helped me build a solid programming foundation.
 
-- **Responsive Design** - Fully optimized for desktop, tablet, and mobile devices
-- **Modern Animations** - Smooth scroll effects, parallax backgrounds, and 3D card interactions
-- **SEO Optimized** - Proper meta tags and semantic HTML structure
-- **Performance Focused** - No heavy frameworks, fast loading times
-- **Interactive UI** - Engaging scroll animations and hover effects
-- **Clean Architecture** - Well-organized, maintainable codebase
+Currently, I'm working as a Solutions Architect at Microfusion Technology Co., Ltd, where I design cloud solutions, lead migrations, and help teams adopt DevOps practices. I'm always looking for new opportunities to learn and collaborate on exciting projects!
 
-## 🛠️ Technology Stack
+## 📁 Project Files
 
-- **HTML5** - Semantic markup for better accessibility and SEO
-- **CSS3** - Modern styling with custom properties and animations
-- **Vanilla JavaScript** - Pure JS with no dependencies
-- **Google Fonts** - Inter & Outfit typography
-- **Git** - Version control
+Here's what each file in this repository does:
 
-## 📂 Project Structure
+### `index.html`
+The main HTML file that contains all the content and structure of my portfolio website. It includes:
+- Navigation menu
+- Hero section with my introduction
+- About section with my background
+- Expertise cards showcasing my skills
+- Professional experience timeline
+- Contact information
 
-```
-louis-portfolio/
-├── index.html          # Main HTML structure
-├── style.css           # Comprehensive styling
-├── script.js           # Interactive features
-├── profile-photo.png   # Professional photo
-└── README.md          # Documentation
-```
+### `style.css`
+The stylesheet that makes everything look good! It contains:
+- Color scheme and design variables
+- Layout and responsive design rules
+- Animations and hover effects
+- Minimalist monochrome styling
 
-## 🎨 Design Philosophy
+### `script.js`
+The JavaScript file that adds interactivity to the website:
+- Smooth scrolling navigation
+- Scroll-based animations
+- 3D card tilt effects
+- Stats counter animations
+- Parallax background effects
 
-The portfolio follows a **minimalist monochrome design** with:
+### `profile-photo.png`
+My professional profile photo displayed in the hero section.
 
-- Clean black and white color palette
-- Premium micro-animations
-- Glassmorphism effects
-- Modern typography
-- Interactive 3D card effects
-- Smooth scroll-based animations
+### `README.md`
+This file! A friendly introduction and guide to the project.
 
-## 📋 Sections
+## 🚀 How to View
 
-1. **Hero** - Introduction with professional badge and CTA buttons
-2. **About** - Personal background and statistics
-3. **Expertise** - Core competencies and skills (6 key areas)
-4. **Experience** - Professional timeline with detailed achievements
-5. **Contact** - Multiple contact methods and location
+Just open `index.html` in any web browser, and you're good to go! The website is fully responsive and works on desktop, tablet, and mobile devices.
 
-## 🚀 Getting Started
+## 📬 Get in Touch
 
-### Local Development
+I'm always open to new opportunities and collaborations!
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/louisvong1/louis-portfolio.git
-   cd louis-portfolio
-   ```
+- **Email**: louisvong1205@gmail.com
+- **LinkedIn**: [louis-vong](https://www.linkedin.com/in/louis-vong-74a289323)
+- **Instagram**: [@louisvong__0512](https://www.instagram.com/louisvong__0512/)
 
-2. **Open locally**
-   - Simply open `index.html` in your web browser
-   - Or use a local server:
-     ```bash
-     # Using Python 3
-     python -m http.server 8000
-     
-     # Using Node.js (http-server)
-     npx http-server
-     ```
-
-3. **View in browser**
-   - Navigate to `http://localhost:8000`
-
-### Deployment
-
-This portfolio can be deployed to various platforms:
-
-#### GitHub Pages
-```bash
-# Enable GitHub Pages in repository settings
-# Select branch: main
-# Folder: / (root)
-```
-
-#### Netlify
-- Drag and drop the folder to [Netlify Drop](https://app.netlify.com/drop)
-- Or connect your GitHub repository for automatic deployments
-
-#### Vercel
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-```
-
-## 💻 Customization
-
-### Update Content
-
-1. **Personal Information** - Edit `index.html`:
-   - Line 53: Name
-   - Line 55: Job title
-   - Lines 97-111: About section
-   - Lines 258-309: Experience timeline
-
-2. **Contact Details** - Edit `index.html`:
-   - Line 327: Email address
-   - Line 340: LinkedIn URL
-   - Line 354: Instagram URL
-   - Line 377: Location
-
-3. **Styling** - Edit `style.css`:
-   - Lines 1-58: CSS variables for colors, fonts, spacing
-   - Modify design tokens to match your brand
-
-4. **Profile Photo**
-   - Replace `profile-photo.png` with your own photo
-   - Recommended: Square image, 800x800px or larger
-   - Optimize for web to reduce file size
-
-## 📊 Performance
-
-- **Lighthouse Score**: 95+ (Performance, Accessibility, Best Practices, SEO)
-- **Load Time**: < 1 second on fast connections
-- **Bundle Size**: ~50KB total (HTML + CSS + JS)
-- **Image Optimization**: Consider compressing profile photo for faster loading
-
-## ✨ Key Features Explained
-
-### Interactive Animations
-- **Scroll Reveal** - Elements fade in as you scroll
-- **Parallax Orbs** - Background elements move at different speeds
-- **3D Card Tilt** - Cards respond to mouse movement with perspective
-- **Stats Counter** - Numbers animate when scrolled into view
-- **Smooth Navigation** - Click nav links for smooth scrolling
-
-### Technical Highlights
-- **Intersection Observer API** - Efficient scroll-based animations
-- **CSS Custom Properties** - Maintainable design tokens
-- **Mobile-First Design** - Responsive breakpoints for all devices
-- **Semantic HTML5** - Improved accessibility and SEO
-- **No Dependencies** - Pure vanilla JavaScript for minimal overhead
-
-## 🔧 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 📫 Contact
-
-**Louis Vong**  
-Solution Architect | Cloud Engineer
-
-- 📧 Email: [louisvong1205@gmail.com](mailto:louisvong1205@gmail.com)
-- 💼 LinkedIn: [louis-vong](https://www.linkedin.com/in/louis-vong-74a289323)
-- 📸 Instagram: [@louisvong__0512](https://www.instagram.com/louisvong__0512/)
-- 📍 Location: Taipei, Taiwan
-
-## 📄 License
-
-© 2026 Louis Vong. All rights reserved.
+Feel free to reach out if you'd like to chat about cloud architecture, AI, or potential projects. Thanks for stopping by! 😊
 
 ---
 
-**Looking for a Solution Architect?** Feel free to reach out for collaboration opportunities!
+© 2026 Louis Vong
