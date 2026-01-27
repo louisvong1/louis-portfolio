@@ -1,6 +1,6 @@
 # Hi there! 👋 I'm Louis Vong
 
-Welcome to my personal portfolio website! I'm a **Solution Architect** and **Cloud Engineer** based in Taipei, Taiwan. I love working with cloud technologies, especially Google Cloud Platform (GCP), and I'm passionate about building scalable solutions and integrating AI into modern platforms.
+Welcome to my personal portfolio website ( https://louisvong1.github.io/louis-portfolio/ ) ! I'm a **Solution Architect** and **Cloud Engineer** based in Taipei, Taiwan. I love working with cloud technologies, especially Google Cloud Platform (GCP), and I'm passionate about building scalable solutions and integrating AI into modern platforms.
 
 ## 🙋‍♂️ About Me
 
