@@ -44,7 +44,7 @@ This file! A friendly introduction and guide to the project.
 
 ## 🚀 How to View
 
-Just open `index.html` in any web browser, and you're good to go! The website is fully responsive and works on desktop, tablet, and mobile devices.
+Just open [My-Portfolio](https://louisvong1.github.io/louis-portfolio/) in any web browser, and you're good to go! The website is fully responsive and works on desktop, tablet, and mobile devices.
 
 ## 📬 Get in Touch
 
