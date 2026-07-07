@@ -1,9 +1,53 @@
+// ===== Theme Toggle =====
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+const getPreferredTheme = () => {
+    const stored = localStorage.getItem('theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+const setTheme = (theme) => {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+};
+
+setTheme(getPreferredTheme());
+
+themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+    }
+});
+
+// ===== Hamburger Menu =====
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+});
+
+// Close menu when a link is clicked
+navLinks.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+    });
+});
+
 // ===== Scroll-based Navigation Highlighting =====
 const navbar = document.getElementById('navbar');
 const sections = document.querySelectorAll('.section, .hero');
-const navLinks = document.querySelectorAll('.nav-link');
+const navLinkElements = document.querySelectorAll('.nav-link');
 
-// Add scrolled class to navbar
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -12,7 +56,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Highlight active section in navigation
 const observerOptions = {
     threshold: 0.3,
     rootMargin: '-100px'
@@ -22,8 +65,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const id = entry.target.getAttribute('id');
-
-            navLinks.forEach(link => {
+            navLinkElements.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${id}`) {
                     link.classList.add('active');
@@ -38,7 +80,7 @@ sections.forEach(section => {
 });
 
 // ===== Smooth Scroll for Navigation Links =====
-navLinks.forEach(link => {
+navLinkElements.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href');
@@ -54,30 +96,21 @@ navLinks.forEach(link => {
     });
 });
 
-// ===== Scroll Animations for Cards =====
-const animateOnScroll = () => {
-    const cards = document.querySelectorAll('.expertise-card, .stat-card, .timeline-item, .contact-card');
+// ===== Staggered Scroll Animations =====
+const animatedElements = document.querySelectorAll('.expertise-card, .stat-card, .timeline-item, .contact-card');
 
-    cards.forEach(card => {
-        const cardTop = card.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (cardTop < windowHeight - 100) {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            scrollObserver.unobserve(entry.target);
         }
     });
-};
+}, { threshold: 0.15, rootMargin: '-50px' });
 
-// Initialize cards with hidden state
-document.querySelectorAll('.expertise-card, .stat-card, .timeline-item, .contact-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+animatedElements.forEach(el => {
+    scrollObserver.observe(el);
 });
-
-window.addEventListener('scroll', animateOnScroll);
-window.addEventListener('load', animateOnScroll);
 
 // ===== Parallax Effect for Background Orbs =====
 window.addEventListener('scroll', () => {
@@ -90,7 +123,32 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ===== Interactive Cursor Effect for Cards =====
+// ===== Magnetic Button Effect =====
+const magneticButtons = document.querySelectorAll('.btn');
+
+magneticButtons.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+
+        btn.style.transform = `translate(${deltaX * 4}px, ${deltaY * 3}px)`;
+        btn.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+        btn.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+    });
+});
+
+// ===== Interactive Card Tilt Effect =====
 const cards = document.querySelectorAll('.expertise-card, .contact-card');
 
 cards.forEach(card => {
@@ -102,10 +160,10 @@ cards.forEach(card => {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+        const rotateX = (y - centerY) / 25;
+        const rotateY = (centerX - x) / 25;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
     });
 
     card.addEventListener('mouseleave', () => {
@@ -113,31 +171,25 @@ cards.forEach(card => {
     });
 });
 
-// ===== Typing Effect for Hero Title (Optional Enhancement) =====
-const createTypingEffect = () => {
-    const nameElement = document.querySelector('.title-name');
-    if (!nameElement) return;
+// ===== Hero Particles =====
+const particlesContainer = document.getElementById('particles');
 
-    const originalText = nameElement.textContent;
-    nameElement.textContent = '';
-    nameElement.style.opacity = '1';
-
-    let index = 0;
-    const typeSpeed = 100;
-
-    const typeWriter = () => {
-        if (index < originalText.length) {
-            nameElement.textContent += originalText.charAt(index);
-            index++;
-            setTimeout(typeWriter, typeSpeed);
-        }
-    };
-
-    setTimeout(typeWriter, 1000);
-};
-
-// Uncomment the line below to enable typing effect
-// createTypingEffect();
+if (particlesContainer) {
+    const particleCount = 25;
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.setProperty('--duration', `${6 + Math.random() * 8}s`);
+        particle.style.setProperty('--delay', `${Math.random() * 5}s`);
+        particle.style.setProperty('--dx', `${(Math.random() - 0.5) * 80}px`);
+        particle.style.setProperty('--dy', `${(Math.random() - 0.5) * 80}px`);
+        particle.style.width = `${2 + Math.random() * 4}px`;
+        particle.style.height = particle.style.width;
+        particlesContainer.appendChild(particle);
+    }
+}
 
 // ===== Dynamic Stats Counter Animation =====
 const animateStats = () => {
@@ -163,7 +215,6 @@ const animateStats = () => {
                 }
             };
 
-            // Start animation when stat card is visible
             const statObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -204,7 +255,7 @@ if (floatingCard) {
     animateFloating();
 }
 
-// ===== Add Loading Animation =====
+// ===== Page Load Animation =====
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
@@ -216,8 +267,8 @@ window.addEventListener('load', () => {
 
 // ===== Console Message =====
 console.log('%c👋 Welcome to Louis Vong\'s Portfolio!',
-    'font-size: 20px; font-weight: bold; color: #00d4ff;'
+    'font-size: 20px; font-weight: bold; color: #667eea;'
 );
 console.log('%cLooking for a Solution Architect? Let\'s connect!',
-    'font-size: 14px; color: #9d00ff;'
+    'font-size: 14px; color: #764ba2;'
 );
