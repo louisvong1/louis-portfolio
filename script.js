@@ -97,7 +97,7 @@ navLinkElements.forEach(link => {
 });
 
 // ===== Staggered Scroll Animations =====
-const animatedElements = document.querySelectorAll('.expertise-card, .stat-card, .timeline-item, .contact-card');
+const animatedElements = document.querySelectorAll('.expertise-card, .stat-card, .timeline-item, .contact-card, .cert-card');
 
 const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
